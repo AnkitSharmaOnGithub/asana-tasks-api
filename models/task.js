@@ -53,3 +53,5 @@ class Task {
       .toArray();
   }
 }
+
+module.exports = Task;
