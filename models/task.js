@@ -46,6 +46,7 @@ class Task {
 
   static fetchTasks() {
     //   Fetch tasks only that have status => Not completed
+    const db = getDb();
     return db
       .collection(collection)
       .find({ $not: { status: "completed" } })
