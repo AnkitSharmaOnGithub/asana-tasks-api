@@ -5,7 +5,7 @@ const collection = "tasks";
     Properties => Values they can have
     ______________________________________________________
 
-    
+    Status => Not Started, In Progress, On Hold, Completed
 
 */
 
@@ -46,6 +46,9 @@ class Task {
 
   static fetchTasks() {
     //   Fetch tasks only that have status => Not completed
-    return db.collection(collection).find({}).toArray();
+    return db
+      .collection(collection)
+      .find({ $not: { status: "completed" } })
+      .toArray();
   }
 }
