@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
 const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.6gyc1.mongodb.net/${process.env.DB_DATABASE}?retryWrites=true&w=majority`;
@@ -5,6 +7,7 @@ const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}
 let _db;
 
 const mongoConnect = (callback) => {
+  console.log(URI);
   mongoClient
     .connect(URI)
     .then((client) => {
