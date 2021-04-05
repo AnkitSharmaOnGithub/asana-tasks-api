@@ -33,4 +33,16 @@ exports.createTask = (req, res, next) => {
     tags,
     status
   );
+
+  task
+    .save()
+    .then((result) => {
+      console.log(result);
+      res.json({
+        message: "Task Created",
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
