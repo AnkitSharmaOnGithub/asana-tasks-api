@@ -1,10 +1,14 @@
 const Task = require("../models/task");
 
 exports.getTasks = async (req, res, next) => {
-  const tasks = await Task.fetchTasks();
+  try {
+    const tasks = await Task.fetchTasks();
 
-  res.json({
-    message: "Tasks Fetched",
-    data: tasks,
-  });
+    res.json({
+      message: "Tasks Fetched",
+      data: tasks,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
