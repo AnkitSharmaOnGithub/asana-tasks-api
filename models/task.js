@@ -49,7 +49,7 @@ class Task {
     const db = getDb();
     return db
       .collection(collection)
-      .find({ $not: { status: "completed" } })
+      .find({ status: { $not : {$eq :"completed"} } })
       .toArray();
   }
 }
