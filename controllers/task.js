@@ -12,3 +12,25 @@ exports.getTasks = async (req, res, next) => {
     console.log(error);
   }
 };
+
+exports.createTask = (req, res, next) => {
+  const title = req.body.title;
+  const priority = req.body.priority;
+  const deadline = req.body.deadline;
+  const section = req.body.section;
+  const description = req.body.description;
+  const comments = req.body.comments;
+  const tags = req.body.tags;
+  const status = req.body.title;
+
+  const task = new Task(
+    title,
+    priority,
+    deadline,
+    section,
+    description,
+    comments,
+    tags,
+    status
+  );
+};
